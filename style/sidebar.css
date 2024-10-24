@@ -1,0 +1,265 @@
+#side-bar{
+    /* width: 240px; */
+    height: 100vh; 
+    
+    padding: 16px 8px; 
+    border-right: 1px solid var(--border-default);
+    position: relative;
+
+    /* animation-name: collapse-animation;
+    animation-duration: 4s; */
+    /* border: 1px solid black;  */
+}
+
+.logo-figure{
+    padding: 0px 8px; 
+}
+
+.side-bar-ul{
+    padding: 0px;
+    margin: 24px 0px 8px;  
+}
+
+.side-bar-width{
+    width: 240px; 
+}
+
+.collapsed-sidebar{
+    width: 64px; 
+    animation-name: collapse-animation;
+    animation-duration: 1s;
+}
+
+.full-sidebar{
+    width: 240px;
+    /* animation-name: un-collapse-animation;
+    animation-duration: 0.5s;  */
+}
+
+.collapsable{
+    transition: 0.5s;
+}
+
+.hidden-collapse{
+    animation-name: hidden-collapse-animation;
+    animation-duration: 0.5s;
+}
+
+
+.show-collapse{
+    animation-name: show-collapse-animation;
+    animation-duration: 0.5s;
+}
+
+@keyframes hidden-collapse-animation {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+@keyframes show-collapse-animation {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes collapse-animation {
+    from {width: 240px}
+    to {width: 64px}
+}
+
+@keyframes un-collapse-animation {
+    from {width: 64px}
+    to {width: 240px}
+}
+  
+
+.nav-list-item, .dark-mode-section{
+    list-style-type: none;
+    display: flex; 
+    padding: 8px; 
+    align-items: center;
+    position: relative; 
+    cursor: pointer; 
+    height: 36px; 
+    transition: 0.2s;    
+}
+
+.norm-tab:hover{
+    background-color: var(--hover);
+    padding-top: 9px;
+}
+
+.nav-list-item figure{
+    width: 24px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+}
+
+.nav-list-item p{
+    margin-left: 40px; 
+}
+.nav-list-item:not(:last-child){
+    margin-bottom: 8px;
+}
+
+.active-tab{
+    background-color: var(--new-select);
+}
+
+.notification-sidebar{
+    width: 24px; 
+    height: 24px; 
+    background-color: var(--alert);
+    border-radius: 50%;
+    color: white; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+    position: absolute; 
+    right: 8px; 
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 24px; 
+    height: 16px; 
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 2px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: var(--primary);
+}
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(9px);
+    -ms-transform: translateX(9px);
+    transform: translateX(9px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+.profile-section{
+    /* border: 1px solid black;  */
+    padding: 0px 8px; 
+}
+
+
+.mobile-nav-top{
+    display: none; 
+}
+
+
+.mobile-footer{
+    display: none; 
+}
+
+
+@media only screen and (max-width: 780px) {
+    .side-bar{
+        display: none; 
+    }
+
+    .logo-figure{
+        padding: 0px; 
+    }
+
+    .mobile-nav-top{
+        display: flex; 
+        flex-direction: column;
+        /* padding: 16px;  */
+    }
+
+    .nav-mobile-logo-holder{
+        padding: 16px; 
+        border-bottom: 1px solid var(--border-slide);
+    }
+
+    
+
+    .side-bar-ul{
+        margin: 0px; 
+    }
+
+    .hidden{
+        display: none; 
+    }
+
+    .coverNav{
+        height: 100vh; 
+        z-index: 4;
+        position: fixed;
+        background-color: white;
+        width: 100%;
+    }
+
+    .mobile-footer{
+        display: flex; 
+        width: 100%; 
+        background-color: white;
+        position: fixed; 
+        bottom: 0px;
+        z-index: 3;
+        padding: 0px 16px 34px !important; 
+    }
+
+    .bottom-nav-item{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        padding-top: 8px;
+    }
+
+    .active-bottom-nav{
+        border-top: 4px solid var(--primary)
+    }
+
+    .active-bottom-nav p{
+        color: var(--primary) !important;
+    }
+}

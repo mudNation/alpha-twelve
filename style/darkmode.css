@@ -1,0 +1,37 @@
+.dark-mode-surface{
+    background-color: var(--dark-mode-surface);
+    border: 1px solid var(--dark-mode-surface) !important;
+    color: white !important;
+}
+
+.primary-dark-surface{
+    background-color: var(--primary-dark) !important;
+    color: white !important;
+    border-top: 1px solid var(--footer-border) !important;
+}
+
+
+
+.th-dark-surface{
+    background-color: var(--hover-dark) !important;
+    color: white !important;
+}
+
+.dark-completed-pill{
+    border: 1px solid var(--green) !important;
+    background: none !important;  
+}
+
+.dark-progress-pill{
+    border: 1px solid var(--blue) !important;
+    background: none !important; 
+}
+
+.footer-background{
+    background-color: var(--footer-border) !important;
+}
+
+
+.border-none{
+    border: none !important;
+}

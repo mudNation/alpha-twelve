@@ -1,0 +1,537 @@
+<html>
+    <head>
+
+        <link rel="stylesheet" href="style/index.css">
+        <link rel="stylesheet" href="style/resets.css">
+        <link rel="stylesheet" href="style/sidebar.css">
+        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/table.css">
+        <link rel="stylesheet" href="style/darkmode.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <script src="javascript/sidebar.js"></script>
+        <script src="javascript/utility.js"></script>
+        <script src="javascript/table.js"></script>
+        
+    </head>
+
+    <body>
+
+        <div class="content" id ="content">
+            <div class="side-bar dark side-bar-width" id="side-bar">
+                <figure class="logo-figure">
+                    <img src="assets/icons/full-logo.svg" alt="full logo" width="64" height="32" id="side-bar-logo" />
+                </figure>
+                
+                <ul class="side-bar-ul">
+                    <li class="active-tab nav-list-item">
+                        <figure>
+                            <img src="assets/icons/home-primary.svg" alt="home " id="active-home" />
+                        </figure>
+                        
+                        <p class="ml-16 color-primary body-regular collapsable">Home</p>
+                    </li>
+
+                    <li class="nav-list-item norm-tab">
+                        <figure>
+                            <img src="assets/icons/calendar.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Events</p>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab">
+                        <figure>
+                            <img src="assets/icons/speakers.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Speakers</p>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab">
+                        <figure>
+                            <img src="assets/icons/reports.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Reports</p>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab">
+                        <figure>
+                            <img src="assets/icons/notifications.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Notifications</p>
+
+                        <div class="notification-sidebar body-small collapsable">
+                            3
+                        </div>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab">
+                        <figure>
+                            <img src="assets/icons/messages.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Messages</p>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab">
+                        <figure>
+                            <img src="assets/icons/settings.svg" alt="calendar " />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Settings</p>
+                    </li>
+
+                    <li class="nav-list-item  norm-tab" onclick="collapseClick()">
+                        <figure>
+                            <img src="assets/icons/collapse.svg" alt="calendar " id="collapse-img" />
+                        </figure>
+                        
+                        <p class="ml-16 body-regular collapsable">Collapse</p>
+                    </li>
+                </ul>
+
+                <section class="dark-mode-section collapsable">
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" onchange="darkModeSwitch()" id="dark-mode-input">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
+                    <p class="ml-8 body-small">Dark mode</p>
+                </section>
+
+                <section class="profile-section flex-center mt-8">
+                    <img src="assets/images/avatar.svg" alt="default avatar" width="32" height="32"/>
+                    <div class="ml-8 collapsable " id="profile-name-holder">
+                        <p class="body-small">Rudra Devi</p>
+                        <p class="body-small text-secondary">rudra.devi@gmail.com</p>
+                    </div>
+                </section>
+            </div>
+
+            <nav class="mobile-nav-top dark" id="mobile-nav-top">
+                <div class="nav-mobile-logo-holder full-width flex-between" id="nav-mobile-logo-holder">
+                    <figure class="logo-figure">
+                        <img src="assets/icons/full-logo.svg" alt="full logo" width="64" height="32" />
+                    </figure>
+
+                    <figure class="pointer" onclick="openSidebar()" id="burger">
+                        <img src="assets/icons/burger.svg" alt="full logo" width="16" height="10" id="burger-image"/>
+                    </figure>
+
+                    <figure class="pointer x-mark-holder flex-center-center hidden" id="close" onclick="closeSidebar()">
+                        <img src="assets/icons/close.svg" alt="full logo" width="10" height="10" />
+                    </figure>
+                </div>
+
+                <div class="extra-mob-nav padding-16 hidden" id="extra-mob">
+                    <ul class="side-bar-ul  mt-8">
+                        <li class="nav-list-item">
+                            <figure>
+                                <img src="assets/icons/home.svg" alt="home " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Home</p>
+                        </li>
+    
+                        <li class="nav-list-item norm-tab">
+                            <figure>
+                                <img src="assets/icons/calendar.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Events</p>
+                        </li>
+    
+                        <li class="nav-list-item  norm-tab">
+                            <figure>
+                                <img src="assets/icons/speakers.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Speakers</p>
+                        </li>
+    
+                        <li class="nav-list-item  norm-tab">
+                            <figure>
+                                <img src="assets/icons/reports.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Reports</p>
+                        </li>
+    
+                        <li class="nav-list-item  norm-tab">
+                            <figure>
+                                <img src="assets/icons/notifications.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Notifications</p>
+    
+                            <div class="notification-sidebar body-small">
+                                3
+                            </div>
+                        </li>
+    
+                        <li class="nav-list-item  norm-tab">
+                            <figure>
+                                <img src="assets/icons/messages.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Messages</p>
+                        </li>
+    
+                        <li class="nav-list-item  norm-tab">
+                            <figure>
+                                <img src="assets/icons/settings.svg" alt="calendar " />
+                            </figure>
+                            
+                            <p class="ml-16 body-regular">Settings</p>
+                        </li>
+                    </ul>
+
+                    <section class="dark-mode-section">
+                        <div>
+                            <label class="switch">
+                                <input type="checkbox" onchange="darkModeSwitch()" id="mob-dark-mode-input">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <p class="ml-8 body-small">Dark mode</p>
+                    </section>
+
+                    <section class="profile-section flex-center mt-8">
+
+                        <img src="assets/images/avatar.svg" alt="default avatar" width="32" height="32"/>
+                        <div class="ml-8">
+                            <p class="body-small">Rudra Devi</p>
+                            <p class="body-small text-secondary">rudra.devi@gmail.com</p>
+                        </div>
+                    </section>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <h1 class="body-large">Welcome! here’s your summary</h1>
+
+                <section class="mt-24 flex-center stats-section" id="stat-section">
+                    <div class="stat-item dark">
+                        <div class="flex-center">
+                            <p class="title-small text-secondary">Total events  </p>
+                            <img src="assets/icons/info.svg" alt="info" class="ml-8 info-image" />
+                        </div>
+
+                        <div class="flex-center">
+                            <p class="title-large">100,000</p>
+                            <img src="assets/icons/stat-up.svg" alt="stat up" class="ml-8" />
+                            <p class="label-regular text-green ml-4">+5.0%</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item dark">
+                        <div class="flex-center">
+                            <p class="title-small text-secondary">Active speakers  </p>
+                            <img src="assets/icons/info.svg" alt="info" class="ml-8 info-image" />
+                        </div>
+
+                        <div class="flex-center">
+                            <p class="title-large">25</p>
+                            <img src="assets/icons/stat-down.svg" alt="stat up" class="ml-8" />
+                            <p class="label-regular text-error ml-4">-5.0%</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item dark">
+                        <div class="flex-center">
+                            <p class="title-small text-secondary">Total registrations  </p>
+                            <img src="assets/icons/info.svg" alt="info" class="ml-8 info-image" />
+                        </div>
+
+                        <div class="flex-center">
+                            <p class="title-large">300</p>
+                            <img src="assets/icons/stat-up.svg" alt="stat up" class="ml-8" />
+                            <p class="label-regular text-green ml-4">+5.0%</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item dark">
+                        <div class="flex-center">
+                            <p class="title-small text-secondary">Total Revenue</p>
+                            <img src="assets/icons/info.svg" alt="info" class="ml-8 info-image" />
+                        </div>
+
+                        <div class="flex-center">
+                            <p class="title-large">$500,000</p>
+                            <img src="assets/icons/stat-up.svg" alt="stat up" class="ml-8" />
+                            <p class="label-regular text-green ml-4">+5.0%</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="stat-slide-section mt-34" >
+                    <h2 class="title-semi-small">Event Registrations per month</h2>
+
+                    <div class="stat-slide-holder grid-12 mt-16" id="chart-slide">
+                        <canvas id="myChart" class="chart-holder dark"></canvas>
+
+                        <div class="slide-show-holder" id="slide-show-holder">
+                            <figure class="slide-arrow slide-left" onclick="prevSlide()">
+                                <img src="assets/icons/left-chev.svg" alt="left chev" />
+                            </figure>
+
+                            <div class="mySlides fade">
+                                <img src="assets/images/slide-1.svg" alt = "slide 1">
+                                <div class="slide-overlay"></div>
+
+                                <div class="slide-info">
+                                    <p class="title-extra-small text-white">Latest News & Updates</p>
+                                    <p class="body-small text-white mt-8">
+                                        Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, 
+                                        fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.
+                                    </p>
+                                </div>
+                            </div>
+                              
+                            <div class="mySlides fade">
+                                <img src="assets/images/slide-2.svg" alt="slide 2">
+                                <div class="slide-overlay"></div>
+                                
+                                <div class="slide-info">
+                                    <p class="title-extra-small text-white">Latest News & Updates</p>
+                                    <p class="body-small text-white mt-8">
+                                        Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, 
+                                        fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mySlides fade">
+                                <img src="assets/images/slide-3.svg" alt="slide 3">
+                                <div class="slide-overlay"></div>
+
+                                <div class="slide-info">
+                                    <p class="title-extra-small text-white">Latest News & Updates</p>
+                                    <p class="body-small text-white mt-8">
+                                        Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, 
+                                        fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.
+                                    </p>
+                                </div>
+                            </div>
+                              
+                            <figure class="slide-arrow slide-right" onclick="nextSlide()">
+                                <img src="assets/icons/right-chev.svg" alt="left chev" />
+                            </figure>
+
+                            <div class="dots-holder flex-center">
+                                <div class="dot active-dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-28 table-section" id="table-section">
+                    <h2 class="title-semi-small ">Event History</h2>
+
+                    <div class="table-input-holder flex-between mt-6" id="table-input-holdeer">
+                        <div class="flex-center gap-8 first-table-input">
+                            <div class="form-group">
+                                <img src="assets/icons/search.svg" alt="magnifying glass" class="leading-icon" />
+                                <input type="text" class="form-control" placeholder="Search..." onkeyup="filter()" id="search-input" />
+                            </div>
+    
+                            <div class="form-group">
+                                <select class="form-select small-select">
+                                    <option>Date</option>
+                                </select>
+                                <img src="assets/icons/chev-down.svg" alt="magnifying glass" class="trailing-icon" />
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-select small-select" onchange="filter()" id="status-input">
+                                    <option value="">Status</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="in_progress">In Progress</option>
+                                </select>
+                                <img src="assets/icons/chev-down.svg" alt="magnifying glass" class="trailing-icon" />
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-select small-select">
+                                    <option>Name</option>
+                                </select>
+                                <img src="assets/icons/chev-down.svg" alt="magnifying glass" class="trailing-icon" />
+                            </div>
+
+                            <h2 class="title-regular display-desktop">Displaying 100 results</h2>
+                        </div>
+
+                        <div class="flex-center gap-8 second-table-input">
+                            <h2 class="title-regular display-mobile">Displaying 100 results</h2>
+
+                            <div class="flex-center gap-8 table-collection">
+                                <p class="body-regular">Sort:</p>
+
+                                <div class="form-group mob-medium-select">
+                                    <select class="form-select medium-select ">
+                                        <option>Most recent</option>
+                                    </select>
+                                    <img src="assets/icons/chev-down.svg" alt="magnifying glass" class="trailing-icon" />
+                                </div>
+                            </div>
+
+                            <div class="flex-center gap-8 table-collection">
+                                <div class="icon-holder">
+                                    <img src="assets/icons/vertical-elpsis.svg" alt="vertical elipsis" id="elipsis-image" />
+                                </div>
+    
+                                <div class="icon-holder">
+                                    <img src="assets/icons/download.svg" alt="vertical elipsis" id="export-image" />
+                                    <p class="body-regular ml-8">Export</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table mt-16" id="table">
+                        <tr class="table-header">
+                            <th class="title-extra-small text-secondary" onclick="setSortField('event_name')">Event Name</th>
+                            <th class="title-extra-small text-secondary" onclick="setSortField('date')">Date</th>
+                            <th class="title-extra-small text-secondary" onclick="setSortField('speaker')">Speaker</th>
+                            <th class="title-extra-small text-secondary" onclick="setSortField('status')">Status</th>
+                        </tr>
+
+
+                    </table>
+
+                    <div class="mobile-table mt-16 dark" id="mobile-table">
+                        <div class="table-header flex-between">
+                            <p class="title-extra-small text-secondary">Event Name</p>
+                            <p class="title-extra-small text-secondary">status</p>
+                        </div>
+
+                        <div id="mobile-table-data">
+
+                        </div>
+                    </div>
+
+                    <p class="body-regular text-center hidden" id="empty-result">No results available</p>
+                </section>
+
+                <section class="pagination mt-16 flex-between">
+                    <div class="page-section flex-center">
+                        <div class="pagination-nav pagination-left dark">
+                            <img src="assets/icons/pagination-left-chev.svg" alt="pagination left icon" id="left-pagination" />
+                        </div>
+
+                        <p class="pagination-number flex-center-center active-pagination body-regular">1</p>
+                        <p class="pagination-number flex-center-center body-regular">2</p>
+                        <p class="pagination-number flex-center-center body-regular">3</p>
+
+                        <div class="pagination-nav pagination-right dark">
+                            <img src="assets/icons/pagination-right-chev.svg" alt="pagination left icon" id="right-pagination" />
+                        </div>
+                    </div>
+
+                    <div class="summary-section flex-center">
+                        <p class="body-regular">Show:</p>
+
+                        <div class="form-group ml-8">
+                            <select class="form-select small-select">
+                                <option>10 Rows</option>
+                            </select>
+                            <img src="assets/icons/chev-down.svg" alt="magnifying glass" class="trailing-icon"  />
+                        </div>
+                    </div>
+                </section>  
+            </main>
+
+            <div class="mobile-footer flex-between">
+                <div class="bottom-nav-item active-bottom-nav">
+                    <figure>
+                        <img src="assets/icons/home.svg" alt="home" id="footer-home" />
+                    </figure>
+
+                    <p class="body-regular mt-8 text-primary">Home</p>
+                </div>
+
+                <div class="bottom-nav-item ">
+                    <figure>
+                        <img src="assets/icons/calendar.svg" alt="home" />
+                    </figure>
+
+                    <p class="body-regular mt-8 text-secondary">Events</p>
+                </div>
+
+                <div class="bottom-nav-item ">
+                    <figure>
+                        <img src="assets/icons/speakers.svg" alt="home" />
+                    </figure>
+
+                    <p class="body-regular mt-8 text-secondary">Speakers</p>
+                </div>
+
+                <div class="bottom-nav-item ">
+                    <figure>
+                        <img src="assets/icons/profile.svg" alt="home" />
+                    </figure>
+
+                    <p class="body-regular mt-8 text-secondary">Profile</p>
+                </div>
+            </div>
+
+
+            <div class="modal flex-center-center" id="modal">
+                <div class="modal-content dark" id="modal-content">
+                    <div class="modal-top-content">
+                        <div class="modal-title flex-between">
+                            <h2 class="title-18" id="modal-title">Event name</h2>
+
+                            <figure class="pointer x-mark-holder flex-center-center" id="close" onclick="closeModal()">
+                                <img src="assets/icons/close.svg" alt="full logo" width="10" height="10" />
+                            </figure>
+                        </div>
+
+                        <p class="body-regular text-secondary" id="modal-date">Event Date</p>
+
+                        <p class="body-regular mt-24">Event Description</p>
+
+
+                        <div class="avata-group mt-48 flex-center">
+                            
+
+                            <img src="assets/icons/avatar-1.svg" alt="avatar 1" class="avatar-icon z3" />
+
+                            <img src="assets/icons/avatar-2.svg" alt="avatar 2" class="avatar-icon left-10 z2" />
+
+                            <img src="assets/icons/avatar-3.svg" alt="avatar 3" class="avatar-icon left-20 z1" />
+                            
+                        </div>
+
+                        <p class="body-regular mt-6" id ="modal-speaker">3 Guest Speakers: Speaker name A, Speaker name B, Speaker name C.</p>
+                        <p class="body-regular">300 Attendees</p>
+                       
+
+                        
+                    </div>
+
+                    <div class="modal-footer flex-between">
+                        <button class="btn btn-white">Edit</button>
+
+                        <div class="btn-group gap-8 flex">
+                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-primary">Mark as completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

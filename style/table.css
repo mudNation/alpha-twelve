@@ -1,0 +1,315 @@
+.form-group{
+    position: relative; 
+    display: flex; 
+    align-items: center;
+}
+
+.form-control, .form-select, .icon-holder{
+    border-radius: 2px;
+    border: 1px solid var(--border-slide);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    height: 36px; 
+}
+
+.form-control{
+    padding: 12px 12px 12px 36px !important; 
+    max-width: 200px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.form-select{
+    padding: 8px 30px 8px 16px; 
+    cursor: pointer; 
+}
+
+.icon-holder{
+    min-width: 36px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px 16px; 
+}
+
+.form-select:hover, .icon-holder:hover{
+    background-color: var(--hover);
+}
+
+/* .small-select{
+    width: 99px !important;
+} */
+
+/* .medium-select{
+    width: 140px !important; 
+} */
+
+.form-control:hover{
+    border: 1px solid #ddd;
+}
+
+.form-control::placeholder{
+    color: #CBD5E1; 
+}
+
+.leading-icon{
+    position: absolute; 
+    left: 12px; 
+}
+
+.trailing-icon{
+    position: absolute; 
+    right: 16px; 
+    width: 6px; 
+    height: 6px; 
+}
+
+
+.table{
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+.table-header{
+    background-color: var(--border-default);
+}
+
+th, td{
+    padding: 16px; 
+    cursor: pointer; 
+}
+
+
+th:hover{
+    background-color: var(--hover-dark);
+}
+.pill{
+    width: fit-content;
+    height: 24px; 
+    border-radius: 100px;
+    padding: 4px 8px; 
+}
+
+.completed-pill{
+    background-color: var(--completed) !important;
+}
+
+.in-progress-pill{
+    background-color: var(--in-progress) !important;
+}
+
+.pill-dot{
+    width: 6px; 
+    height: 6px; 
+    border-radius: 50%;
+}   
+
+.completed-pill-dot{
+    
+    background-color: var(--green);
+}
+
+.in-progress-pill-dot{
+    background-color: var(--blue);
+}
+
+
+
+.pagination{
+    width: 100%; 
+}
+
+.pagination-item{
+    
+}
+.pagination-nav{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 36px; 
+    height: 36px; 
+    cursor: pointer; 
+}
+
+.pagination-left{
+    background-color: var(--border-slide);
+}
+
+.pagination-right{
+    border: 1px solid var(--border-slide)
+}
+
+.pagination-right:hover{
+    background-color: var(--hover);
+}
+
+.pagination-number{
+    width: 24px; 
+    height: 24px; 
+    margin-left: 16px; 
+}
+
+.active-pagination{
+    background-color: var(--primary);
+    border-radius: 50%;
+    color: white; 
+}
+
+.display-mobile{
+    display: none; 
+}
+
+.mobile-table{
+    display: none !important; 
+}
+
+
+
+@media only screen and (max-width: 1300px){
+    .table-input-holder, .extra-table-input-holder{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px; 
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .extra-table-input-holder{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px; 
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .table-input-holder .first-input-row{
+        flex-direction: column;
+    }
+
+    .table-input-holder .first-table-input .display-desktop{
+        display: none; 
+    }
+
+    .table-input-holder .second-table-input .display-mobile{
+        display: block; 
+    }
+
+    
+
+    .table-input-holder .first-table-input, .table-input-holder .second-table-input{
+        flex-direction: column;
+        width: 100% !important;
+        align-items: flex-start;
+    }
+
+    .table-input-holder .first-table-input .form-group, .form-control, .form-select{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .table-input-holder .second-table-input .table-collection{
+        justify-content: space-between;
+        width: 100%; 
+    }
+
+
+    .table-section .table{
+        display: none; 
+    }
+
+    .table-section .mobile-table{
+        display: block !important;
+    }
+
+    .table-header{
+        padding: 16px !important; 
+    }
+
+    
+
+    .mobile-table-cell{
+        padding: 10px 10px 10px 20px;
+    }
+
+    .mobile-table-chev{
+        width: 6px; 
+        height: 6px;
+    }
+
+    .mobile-table div .pill .pill-dot{
+        display: none; 
+    }
+
+    .mobile-table div .pill span{
+        margin: 0px !important; 
+        width: 100% !important; 
+        text-align: center !important;
+        color: white !important;
+    }
+
+    .mobile-table div .completed-pill{
+        background-color: var(--green) !important;
+    }
+
+    .mobile-table div .in-progress-pill{
+        background-color: var(--blue) !important;
+    }
+}
+
+
+@media only screen and (max-width: 900px){
+    .extra-table-input-holder .first-table-input .display-desktop{
+        display: none; 
+    }
+
+    .extra-table-input-holder .second-table-input .display-mobile{
+        display: block; 
+    }
+}
+
+
+@media only screen and (max-width: 680px){
+    .extra-table-input-holder .first-input-row{
+        flex-direction: column;
+    }
+
+    .extra-table-input-holder .first-table-input, .extra-table-input-holder .second-table-input{
+        flex-direction: column;
+        width: 100% !important;
+        align-items: flex-start;
+    }
+
+    .extra-table-input-holder .first-table-input .form-group, .form-control, .form-select{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .extra-table-input-holder .second-table-input .table-collection{
+        justify-content: space-between;
+        width: 100%; 
+    }
+
+    .extra-table-section .table{
+        display: none; 
+    }
+
+    .extra-table-section .mobile-table{
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    
+}
+
+.hidden{
+    display: none; 
+}
