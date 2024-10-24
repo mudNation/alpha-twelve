@@ -89,7 +89,7 @@ th, td{
 
 
 th:hover{
-    background-color: var(--hover-dark);
+    background-color: var(--footer-border);
 }
 .pill{
     width: fit-content;
