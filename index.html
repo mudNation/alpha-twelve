@@ -20,6 +20,7 @@
     <body>
 
         <div class="content" id ="content">
+            <!--Desktop side bar-->
             <div class="side-bar dark side-bar-width" id="side-bar">
                 <figure class="logo-figure">
                     <img src="assets/icons/full-logo.svg" alt="full logo" width="64" height="32" id="side-bar-logo" />
@@ -115,6 +116,7 @@
                 </section>
             </div>
 
+            <!--Mobile side top navigation-->
             <nav class="mobile-nav-top dark" id="mobile-nav-top">
                 <div class="nav-mobile-logo-holder full-width flex-between" id="nav-mobile-logo-holder">
                     <figure class="logo-figure">
@@ -215,9 +217,11 @@
                 </div>
             </nav>
 
+            <!--Main content including the stats cards, chart/slideshow and table-->
             <main class="main-content">
                 <h1 class="body-large">Welcome! here’s your summary</h1>
 
+                <!--Stats section-->
                 <section class="mt-24 flex-center stats-section" id="stat-section">
                     <div class="stat-item dark">
                         <div class="flex-center">
@@ -273,12 +277,16 @@
                 </section>
 
 
+                <!--Chart and slide show-->
                 <section class="stat-slide-section mt-34" >
                     <h2 class="title-semi-small">Event Registrations per month</h2>
 
+
                     <div class="stat-slide-holder grid-12 mt-16" id="chart-slide">
+                        <!--Canvas for chart-->
                         <canvas id="myChart" class="chart-holder dark"></canvas>
 
+                        <!--Slide show-->
                         <div class="slide-show-holder" id="slide-show-holder">
                             <figure class="slide-arrow slide-left" onclick="prevSlide()">
                                 <img src="assets/icons/left-chev.svg" alt="left chev" />
@@ -336,9 +344,11 @@
                     </div>
                 </section>
 
+                <!--Table section-->
                 <section class="mt-28 table-section" id="table-section">
                     <h2 class="title-semi-small ">Event History</h2>
 
+                    <!--Filter/search-->
                     <div class="table-input-holder flex-between mt-6" id="table-input-holdeer">
                         <div class="flex-center gap-8 first-table-input">
                             <div class="form-group">
@@ -399,6 +409,7 @@
                         </div>
                     </div>
 
+                    <!--Desktop table-->
                     <table class="table mt-16" id="table">
                         <tr class="table-header">
                             <th class="title-extra-small text-secondary" onclick="setSortField('event_name')">Event Name</th>
@@ -410,6 +421,7 @@
 
                     </table>
 
+                    <!--Mobile version of table-->
                     <div class="mobile-table mt-16 dark" id="mobile-table">
                         <div class="table-header flex-between">
                             <p class="title-extra-small text-secondary">Event Name</p>
@@ -424,6 +436,7 @@
                     <p class="body-regular text-center hidden" id="empty-result">No results available</p>
                 </section>
 
+                <!--Pagination-->
                 <section class="pagination mt-16 flex-between">
                     <div class="page-section flex-center">
                         <div class="pagination-nav pagination-left dark">
@@ -452,6 +465,7 @@
                 </section>  
             </main>
 
+            <!--mobile footer-->
             <div class="mobile-footer flex-between">
                 <div class="bottom-nav-item active-bottom-nav">
                     <figure>
@@ -486,7 +500,7 @@
                 </div>
             </div>
 
-
+            <!--Modal-->
             <div class="modal flex-center-center" id="modal">
                 <div class="modal-content dark" id="modal-content">
                     <div class="modal-top-content">

@@ -1,3 +1,4 @@
+//default headers
 const tableHeader = [
     {
         accessor: "event_name",
@@ -17,7 +18,7 @@ const tableHeader = [
     },
 ]
 
-
+//default values
 const defaultData = [
     {
         event_name: "Cloud Innovation Summit", 
@@ -94,13 +95,13 @@ let tableData = defaultData;
 let sortField = ""; 
 let sortAsc = true; 
 
-
+// set up both the mobile table and desktop table
 function tableStart(){
     addTableFields(); 
     addMobileTableFields(); 
 }
 
-
+// add configure the desktop table. 
 function addTableFields(){
     const table = document.getElementById("table")
     
@@ -123,13 +124,15 @@ function addTableFields(){
     }
 }
 
+
+// set listener for row click opening the modal
 function setTableRowClick(row, index){
     row.addEventListener("click", function(){
         showModal(index)
     })
 }
 
-
+// shows the modal
 function showModal(index){
 
     const modal = document.getElementById("modal");
@@ -145,11 +148,14 @@ function showModal(index){
     modalSpeaker.textContent = `1 Guest Speaker: ${tableData[index].speaker}`
 }
 
+
+//closes the modal
 function closeModal(){
     const modal = document.getElementById("modal");
     modal.style.display = "none";
 }
 
+// configure the data for mobile table
 function addMobileTableFields() {
     const table = document.getElementById("mobile-table"); 
     table.innerHTML = "";
@@ -182,13 +188,14 @@ function addMobileTableFields() {
 }
 
 
-
+// set click handler for when the mobile table row has been clicked
 function setMobileTableClick(element, index, image){
     element.addEventListener("click", function(){
         mobileClickHandler(element, index, image)
     })
 }
 
+// actual function fired when mobile row has been clicked
 function mobileClickHandler(element, index){
     console.log(element); 
 
@@ -220,6 +227,7 @@ function mobileClickHandler(element, index){
     console.log(display, "====style display")
 }
 
+// set chev images when clicked, change from right to down and white to black if in dark mode
 function setImagSrc(image, display){
 
     if(display !== "flex"){
@@ -242,7 +250,7 @@ function setImagSrc(image, display){
     }
 }
 
-
+// returns the status pill
 function getStatusPill(status, parent){
     const element = createElement("div", parent, `pill ${status === "completed" ? 'completed-pill' : 'in-progress-pill'} flex-center`); 
     const dot = createElement("div", element, `${status === "completed" ? 'completed-pill-dot' : 'in-progress-pill-dot'} pill-dot`); 
@@ -250,6 +258,8 @@ function getStatusPill(status, parent){
     span.textContent = status === "completed" ? "Completed" : "In Progress"
 }
 
+
+// create dom element and adds to parent if any, sets the class and id if any
 function createElement(type = "div", parent, className, id){
     const element = document.createElement(type);
     if(parent){
@@ -267,6 +277,9 @@ function createElement(type = "div", parent, className, id){
     return element; 
 }
 
+
+//filter the table, ONLY THE SEARCH AND STATUS FILTER WORK AS I WAS UNSURE OF HOW THE REST WOULD WORK.
+// CLICKING ON THE TABLE HEADER ALSO SORTS IT BOTH ASCENDING AND DESCENDING IF CLICKED MORE THAN ONCE
 function filter(){
     tableData = defaultData; 
 
@@ -290,6 +303,7 @@ function filter(){
     }
 }
 
+//toggle table color if in darkmode
 function switchTableColor(){
     const p1s = document.getElementsByTagName("p"); 
     const ths = document.getElementsByTagName("th");
@@ -301,12 +315,13 @@ function switchTableColor(){
     backgroundLoop(table)
 }
 
+// resets the table just before filtering
 function resetTable(){
     clearTable(); 
     tableStart(); 
 }
 
-
+// funciton to search what the user has entered, ONLY SEARCHES THE EVENT NAME
 function search(){
     const searchInput = document.getElementById("search-input"); 
     console.log(searchInput.value);
@@ -314,12 +329,15 @@ function search(){
     tableData = tableData.filter((data) => data.event_name.toLowerCase().includes(searchInput.value.toLowerCase()))
 }
 
+// filter the table by status clicked
 function filterStatus(){
     const statusInput = document.getElementById("status-input");
 
     tableData = tableData.filter((data) => statusInput.value === "" ? true : data.status.toLocaleLowerCase() === statusInput.value.toLowerCase())
 }
 
+
+// sets the field which the table should be sorted by
 function setSortField(field){
 
     if(sortField === field){
@@ -336,6 +354,7 @@ function setSortField(field){
     resetTable(); 
 }
 
+// sort data depending on sorting field
 function sortData(){
     if(!sortField){
         return; 
@@ -368,6 +387,8 @@ function sortData(){
     }
 }
 
+
+// clears the desktop table with just its headers.
 function clearTable(){
     const table = document.getElementById("table"); 
     table.innerHTML = `

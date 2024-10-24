@@ -3,6 +3,8 @@ let timeOut;
 let chartFontSize = 26; 
 let myChart; 
 
+
+//Sets the chart, slide and table
 function start(){
     setChart(); 
     showSlides(); 
@@ -10,6 +12,7 @@ function start(){
 }
 
 
+// set font size of chart depending on window size
 function setChartFontSize(){
     if(window.innerWidth > 1200){
         chartFontSize = 26; 
@@ -24,6 +27,7 @@ function setChartFontSize(){
     }
 }
 
+// configure the chart
 function setChart(){
     const xValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const xMobValues = ["Ja", "Fe", "Ma", "Ap", "Ma", "Ju", "Ju", "Au", "Se", "Oc", "No", "De"]
@@ -115,6 +119,7 @@ function setChart(){
     });
 }
 
+// configures the slideshow
 function showSlides(type = "next") {
     clearTimeout(timeOut)
     let i;
@@ -141,18 +146,26 @@ function showSlides(type = "next") {
     timeOut = setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
 
+// skips to next image in slide show
 function nextSlide(){
     showSlides("next");
 }
 
+
+// skips to next previous image in slide show
 function prevSlide(){
     showSlides("prev")
 }
 
+
+// reconfigure chart on window resize
 function windowSizeChange(){
     // console.log(window.innerWidth)
     setChart(); 
 }
 
+// call the start function after page has loaded
 window.addEventListener("load", start, false); 
+
+// add listener for window resize to call windosizechange
 window.addEventListener("resize", windowSizeChange, false); 

@@ -6,6 +6,7 @@ const darkModeSurface = "#484554"
 const primaryDark = "#484554"
 const white = "#ffffff"
 
+// open navigation for mobile devices
 function openSidebar(){
     const burger = document.getElementById("burger");
     const close = document.getElementById("close");
@@ -18,6 +19,7 @@ function openSidebar(){
     mobTop.classList.add("coverNav");
 }
 
+// close navigation for mobile devices
 function closeSidebar(){
     const burger = document.getElementById("burger")
     const close = document.getElementById("close")
@@ -30,6 +32,8 @@ function closeSidebar(){
     mobTop.classList.remove("coverNav");
 }
 
+
+//toggle side bar when collapse is clicked for desktop devices
 function collapseClick(){
     const collapseImg = document.getElementById("collapse-img"); 
     const sideBar = document.getElementById("side-bar")
@@ -96,14 +100,14 @@ function collapseClick(){
     }
 }
 
-
+//swap classes of elments, used when the side bar has been collapsed. 
 function swapClasses(element, oldClass, newClass){
     element.classList.remove(oldClass)
     element.classList.add(newClass);
 }
 
 
-
+// hide the text and extra icons when side bar has been collapsed
 function hideCollapse(display){
     const collapsables = document.getElementsByClassName("collapsable"); 
 
@@ -127,7 +131,7 @@ function hideCollapse(display){
     }
 }
 
-
+// toggle dark mode
 function darkModeSwitch(){
     darkMode = !darkMode; 
     const content = document.getElementById("content"); 
@@ -221,6 +225,7 @@ function darkModeSwitch(){
 }
 
 
+// swap the info icons for darkmode/lightmode
 function setInfoImages(){
     const infos = document.getElementsByClassName("info-image")
 
@@ -233,7 +238,7 @@ function setInfoImages(){
     }
 }
 
-
+//toggle table chev icons for darkmode
 function setMobileTableChevs(){
     const mobileTableChevs = document.getElementsByClassName("mobile-table-chev"); 
 
@@ -265,7 +270,7 @@ function setMobileTableChevs(){
     }
 }
 
-
+//helper function to toggle text collors for dark mode on text tags
 function switchTextColor(){
     const p1s = document.getElementsByTagName("p"); 
     const h1s = document.getElementsByTagName("h1"); 
@@ -278,6 +283,8 @@ function switchTextColor(){
     textLoop(ths)
 }
 
+
+//toggle background collors for collections of elements for darkmode
 function backgroundLoop(tags, className = "dark-mode-surface"){
     for(let i = 0; i < tags.length; i++){
         if(darkMode){
@@ -288,6 +295,8 @@ function backgroundLoop(tags, className = "dark-mode-surface"){
     }
 }
 
+
+//toggle text colors for collection of elements for darkmode
 function textLoop(tags){
     for(let i = 0; i < tags.length; i++){
         if(darkMode){
